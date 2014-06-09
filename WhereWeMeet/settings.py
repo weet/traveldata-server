@@ -13,8 +13,12 @@ PROJECT_DIR = abspath(join(dirname(__file__)))
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': join(PROJECT_DIR, '..', 'codecamp.db'),
+        'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'geodjango',                      # Or path to database file if using sqlite3.
+        'USER': 'elbiot',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -60,9 +64,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'codecamp.urls'
+ROOT_URLCONF = 'WhereWeMeet.urls'
 
-WSGI_APPLICATION = 'codecamp.wsgi.application'
+WSGI_APPLICATION = 'WhereWeMeet.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -78,9 +82,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.gis',
     'rest_framework',
-    'codecamp.ember',
+    'WhereWeMeet.drivetimes',
     'compressor',
+    'south',
 )
 
 LOGGING = {

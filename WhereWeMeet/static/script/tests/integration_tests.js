@@ -12,7 +12,7 @@ module('integration tests', {
 
 test('ajax response with 1 session yields table with 1 row', function() {
     var json = [{"id": 1, "name": "foo", "room": "bar", "desc": "test", "speakers": [], "ratings": [], "tags": []}];
-    stubEndpointForHttpRequest('/codecamp/sessions/', json);
+    stubEndpointForHttpRequest('/WhereWeMeet/sessions/', json);
     Ember.run(CodeCamp, 'advanceReadiness');
     visit("/").then(function() {
         var rows = find("table tr").length;
@@ -23,7 +23,7 @@ test('ajax response with 1 session yields table with 1 row', function() {
 });
 
 test('ajax response with 0 session yields empty table', function() {
-    stubEndpointForHttpRequest('/codecamp/sessions/', []);
+    stubEndpointForHttpRequest('/WhereWeMeet/sessions/', []);
     Ember.run(CodeCamp, 'advanceReadiness');
     visit("/").then(function() {
         var rows = find("table tr").length;

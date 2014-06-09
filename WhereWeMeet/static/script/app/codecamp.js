@@ -140,5 +140,5 @@ CodeCamp.SessionController = Ember.ObjectController.extend({
 });
 
 CodeCamp.ApplicationAdapter = DS.DjangoRESTAdapter.extend({
-    namespace: 'codecamp'
+    namespace: 'WhereWeMeet'
 });

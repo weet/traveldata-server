@@ -1,6 +1,6 @@
 module.exports = function(karma) {
     karma.set({
-        basePath: 'codecamp/static/script',
+        basePath: 'WhereWeMeet/static/script',
 
         files: [
           "vendor/jquery-1.9.1.js",
