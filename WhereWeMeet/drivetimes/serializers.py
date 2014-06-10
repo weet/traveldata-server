@@ -2,7 +2,12 @@ from rest_framework import serializers
 from WhereWeMeet.drivetimes.models import Meeting, UserCoordinate, LocationType, PointLocation
 
 class MeetingSerializer(serializers.ModelSerializer):
-    userCoordinates = serializers.ManyPrimaryKeyRelatedField()
+    userCoordinates = serializers.SerializerMethodField('get_visible_users')
+
+    def get_visible_users(self,obj):
+        #returns the whole thing, should it just return a list of id's?
+	visible_users = UserCoordinate.objects.filter(meeting=obj,visible=True)
+	return UserCoordinateSerializer(visible_users).data
 
     class Meta:
         model = Meeting
@@ -12,7 +17,7 @@ class MeetingSerializer(serializers.ModelSerializer):
 class UserCoordinateSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserCoordinate
-        fields = ('id', 'meeting', 'point', 'name', 'transportationType', 'visible', 'created')
+        fields = ('id', 'point', 'name', 'transportationType', 'created')
 
 
 class LocationTypeSerializer(serializers.ModelSerializer):
