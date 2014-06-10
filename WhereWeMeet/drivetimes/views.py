@@ -10,6 +10,9 @@ class MeetingDetail(generics.RetrieveUpdateDestroyAPIView):
     model = Meeting
     serializer_class = serializers.MeetingSerializer
 
+class MeetingCreate(generics.CreateAPIView):
+    model = Meeting
+    serializer_class = serializers.MeetingSerializer
 '''
 client has no business knowing all user input across all meetings
 class UserCoordinateList(generics.ListCreateAPIView):
