@@ -2,5 +2,5 @@
 *.pyo
 *.swp
 
-node_modules/*
-static/*
+#node_modules/*
+#static/*
