@@ -1,36 +1,35 @@
-{% load staticfiles %}
-{% load compress %}
 <!DOCTYPE html>
 <html>
-<title>Code Camp</title>
-<link href="{% static 'css/default.css' %}" rel="stylesheet" type="text/css">
-<meta name="csrf-token" content="{{csrf_token}}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://ol3js.org/en/master/css/ol.css" type="text/css">
+
+  <link rel="stylesheet" href="/assets/a8adfb4f.app.min.css">
+
+  <!-- for more details visit: https://github.com/yeoman/grunt-usemin -->
+
+  <script src="/assets/03258c8c.config.min.js"></script>
+
+  <script src="/assets/f7b23000.vendor.min.js"></script>
+
+  <script src="/assets/705a0a0f.app.min.js"></script>
+
+</head>
 <body>
+  <!--[if lt IE 8]>
+    <p class="browsehappy">
+      You are using an <strong>outdated</strong> browser. Please
+      <a href="http://browsehappy.com/">upgrade your browser</a>
+      to improve your experience.
+    </p>
+  <![endif]-->
 
-<div id="ember"></div>
-
-{% compress js %}
-<script src="{{ STATIC_URL }}script/vendor/jquery-1.9.1.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ajaxSend(function(event, xhr, settings) {
-    if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
-      var token = $('meta[name="csrf-token"]').attr('content');
-      xhr.setRequestHeader("X-CSRFToken", token);
-    }
-  });
-</script>
-<script src="{{ STATIC_URL }}script/vendor/handlebars-1.0.0.js" type="text/javascript"></script>
-<script src="{{ STATIC_URL }}script/vendor/ember.js" type="text/javascript"></script>
-<script src="{% static 'script/vendor/ember-data.js' %}" type="text/javascript"></script>
-<script src="{% static 'script/vendor/adapter.js' %}" type="text/javascript"></script>
-<script src="{% static 'script/app/codecamp.js' %}" type="text/javascript"></script>
-<script src="{% static 'script/app/templates/application.handlebars' %}" type="text/x-handlebars"></script>
-<script src="{% static 'script/app/templates/associations.handlebars' %}" type="text/x-handlebars"></script>
-<script src="{% static 'script/app/templates/sessions.handlebars' %}" type="text/x-handlebars"></script>
-<script src="{% static 'script/app/templates/session.handlebars' %}" type="text/x-handlebars"></script>
-<script src="{% static 'script/app/templates/speaker.handlebars' %}" type="text/x-handlebars"></script>
-<script src="{% static 'script/app/templates/speakers.handlebars' %}" type="text/x-handlebars"></script>
-<script src="{% static 'script/app/templates/user.handlebars' %}" type="text/x-handlebars"></script>
-{% endcompress %}
+  <script>
+    window.App = require('appkit/app')['default'].create(ENV.APP);
+  </script>
 </body>
 </html>

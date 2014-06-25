@@ -1,6 +1,7 @@
 *.pyc
 *.pyo
 *.swp
+./WhereWeMeet/settings.py
 
 node_modules/*
 static/*

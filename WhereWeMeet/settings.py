@@ -14,7 +14,7 @@ PROJECT_DIR = abspath(join(dirname(__file__)))
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'geodjango',                      # Or path to database file if using sqlite3.
+        'NAME': 'gmmup',                      # Or path to database file if using sqlite3.
         'USER': 'elbiot',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -31,9 +31,9 @@ USE_TZ = True
 
 MEDIA_ROOT = ''
 MEDIA_URL = ''
-STATIC_ROOT = join(PROJECT_DIR, '..', 'static')
-STATIC_URL = '/static/'
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+STATIC_ROOT = join(PROJECT_DIR, '..', 'static','assets')
+STATIC_URL = '/assets/'
+ADMIN_MEDIA_PREFIX = '/assets/admin/'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
